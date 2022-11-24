@@ -48,7 +48,7 @@ const generateQRCode = (url, size) => {
 
 const generateArAnchor = (size) => {
   const imgAr = new Image(size, size);
-  imgAr.src = "img/dog_ai.png";
+  imgAr.src = "img/arAnch.png";
   imgAr.alt = "ar ancher image"
 
   console.log(imgAr);
@@ -86,7 +86,7 @@ const createSaveBtn = (saveUrl) => {
   const link = document.createElement('a');
   link.id = 'save-link';
   link.classList =
-    'bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5';
+    'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-1/3 m-auto my-5';
   link.href = saveUrl;
   link.download = 'qrcode';
   link.innerHTML = 'Save Image';
@@ -97,7 +97,7 @@ const createPrintButton = () =>{
   const btn = document.createElement('button');
   btn.id = "print-btn";
   btn.classList =
-    'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5';
+    'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded w-1/3 m-auto my-5 ';
   btn.innerHTML = "Print"  
   document.getElementById('buttonsContainer').appendChild(btn);
   btn.onclick = () =>{
