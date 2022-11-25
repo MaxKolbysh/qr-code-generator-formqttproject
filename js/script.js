@@ -1,6 +1,6 @@
 const form = document.getElementById('generate-form');
 const qr = document.getElementById('qrcode');
-
+const canvas= document.getElementById('canvas');
 
 // Button submit
 const onGenerateSubmit = (e) => {
@@ -25,14 +25,26 @@ const onGenerateSubmit = (e) => {
       setTimeout(() => {
         // Get save url
         const saveUrl = qr.querySelector('img').src;
-        // Create save button
-        createSaveBtn(saveUrl);
+        // Create print button      
         createPrintButton();
+        // Create save button with canvas inside       
+        html2canvas(document.querySelector("#canvas"), {
+          
+          imageTimeout: 70,
+          width: 800,
+          height: 600
+      }).then(canvas => {
+          //document.body.appendChild(canvas)
+          let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+          
+          createSaveBtn(image); 
+        });
+      
         
       }, 50);
-    }, 1000);
-  }
-  document.getElementById('url').value = "";
+    }, 1000);   
+  } 
+  document.getElementById('url').value = "";  
 };
 
 // Generate QR code
@@ -83,14 +95,20 @@ const hideSpinner = () => {
 
 // Create save button to download QR code as image
 const createSaveBtn = (saveUrl) => {
+  
   const link = document.createElement('a');
   link.id = 'save-link';
   link.classList =
     'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-1/3 m-auto my-5';
   link.href = saveUrl;
-  link.download = 'qrcode';
-  link.innerHTML = 'Save Image';
+  //link.download = 'qrcode';
+  link.setAttribute("download", "ImageForPrint.png");
+  link.innerHTML = 'Save';
   document.getElementById('buttonsContainer').appendChild(link);
+  
+ 
+  
+  
 };
 
 const createPrintButton = () =>{
@@ -105,7 +123,5 @@ const createPrintButton = () =>{
   }
 
 };
-
-hideSpinner();
 
 form.addEventListener('submit', onGenerateSubmit);
