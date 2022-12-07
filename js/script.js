@@ -18,8 +18,8 @@ const onGenerateSubmit = (e) => {
     showSpinner();
     // Show spinner for 1 sec
     setTimeout(() => {
-      hideSpinner();
-      generateQRCode(("http://127.0.0.1:8000/ardata?q="+url), size); // link here should be changed on a valid link
+      hideSpinner();https:
+      generateQRCode(("https://qrcodemqtt.azurewebsites.net/fetch?q="+url), size); // link here should be changed on a valid link
       generateArAnchor(size);
       // Generate the save button after the qr code image src is ready
       setTimeout(() => {
