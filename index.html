@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,6 +20,7 @@
       rel="stylesheet"
     />
     <script src="js/tailwind.js"></script>
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
     <script src="js/html2canvas.min.js"></script>
     <script>
       tailwind.config = {
@@ -32,6 +33,7 @@
         },
       };
     </script>
+
     <script
       src="js/qrscript.js"
    
@@ -46,25 +48,41 @@
     </style>
     <title>QR code for AR topics</title>
   </head>
-  <body>
+  <body class="bg-white dark:bg-slate-800">
     <header class="p-4 mb-10 bg-teal-500">
-      <div class="max-w-5xl m-auto">
+      <div class=" max-w-5xl flex flex-row justify-between m-auto">
         <div class="text-xl font-bold text-white">Assistant for AR anchor</div>
+        <button id="theme-toggle" type="button" class="text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-0.5">
+          <svg  id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" hidden w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+
+
+        </svg>
+          <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        </svg>
+        </button>
+
       </div>
+
     </header>
+
+
+
     <img src="img/spinner.svg" alt="" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <main>
       <div
         class="flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl p-10 md:flex-row"
       >
+
         <div class="w-full md:w-2/3 mr-24">
-          <h1 class="text-3xl font-bold mb-5 md:text-4xl">QR Code Generator for MQTT topics</h1>
-          <p class="mb-4">
+          <h1 class="text-3xl dark:text-white font-bold mb-5 md:text-4xl">QR Code Generator for MQTT topics</h1>
+          <p class="mb-4 dark:text-slate-100">
             QR Codes allow smartphone users to access AR topics on <b>MQTT</b> simply and
             quickly.
           </p>
-          <p>
+          <p class="dark:text-slate-100">
             <b>Enter your topic name</b> below to generate a QR Code and "AR marker", then download the image and <b>scan it with your phone camera</b>.
 
           </p>
@@ -92,7 +110,7 @@
               <option value="700">700x700</option>
             </select>
             <button
-              class="bg-gray-600 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black"
+              class="bg-gray-600 dark:bg-orange-400 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black dark:hover:bg-orange-500"
               type="submit"
             >      
               Generate QR Code
@@ -115,7 +133,7 @@
 
       <div
         id="generated"
-        class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-14"
+        class="  max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-14"
       >
         <!-- Spinner -->
         <div id="spinner" role="status">
