@@ -31,15 +31,15 @@ const onGenerateSubmit = (e) => {
         html2canvas(document.querySelector("#canvas"), {
           
           imageTimeout: 70,
-          width: 800,
-          height: 600
+          width: 700,
+          height: 800
       }).then(canvas => {
           //document.body.appendChild(canvas)
           let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
           
           createSaveBtn(image); 
         });
-      
+
         
       }, 50);
     }, 1000);   
